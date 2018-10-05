@@ -10,7 +10,13 @@ namespace CustomList
     {
         T[] Input;
         private int count;
-        private int capacity = 4;
+        public int Capacity { get; set; }
+
+        public CList()
+        {
+            Capacity = 4;
+            Input = new T[Capacity];
+        }
 
         public T this[int i]
         {
@@ -23,47 +29,15 @@ namespace CustomList
             {
                 return count;
             }
-            set
-            {
-                //count = value;
-            }
+            
         }
 
-        public void CustomList()
-        {
-            Input = new T[capacity];
-        }
-
-        public void Add_OLD(T value)
-        {
-            //temp array
-            //loop
-            //count++
-
-            //if space
-
-
-            //else 
-            //make space then add
-            T[] temp = new T[Input.Length + 1];
-
-            for (int i = 0; i < count; i++)
-            {
-                temp[i] = Input[i];
-            }
-
-            temp[count] = value;
-            count++;
-            Input = temp;
-        }
-
-        ///////////////////ADD////////////////////////
         public void Add(T value)
         {
 
-            if (count == capacity)
+            if (count >= Capacity)
             {
-                T[] temp = new T[capacity * 2];
+                T[] temp = new T[Capacity * 2];
                 for (int i = 0; i < count; i++)
                 {
                     temp[i] = Input[i];
@@ -75,21 +49,63 @@ namespace CustomList
             }
             else
             {
-
-
                 Input[count] = value;
                 count++;
-
             }
-
-
         }
 
-        public void Remove(T valueToRemove)
+
+
+        public void Remove(T value)
         {
+            //if (count >= Capacity)
+            //{
+            //    T[] temp = new T[Capacity * 2];
+            //    for (int i = 0; i < count; i++)
+            //    {
+            //        temp[i] = Input[i];
+            //    }
 
+            //    temp[count] = value;
+            //    count--;
+            //    Input = temp;
+            //}
+
+                 Input[count] = value;
+                 count--;
+          
         }
+
+
+
+
+        //public void CustomList()
+        //{
+        //    Input = new T[Capacity];
+        //}
+        //public void Add_OLD(T value)
+        //{
+        //    //temp array
+        //    //loop
+        //    //count++
+
+        //    //if space
+
+
+        //    //else 
+        //    //make space then add
+        //    T[] temp = new T[Input.Length + 1];
+
+        //    for (int i = 0; i < count; i++)
+        //    {
+        //        temp[i] = Input[i];
+        //    }
+
+        //    temp[count] = value;
+        //    count++;
+        //    Input = temp;
+        //}
 
     }
 }
-}
+

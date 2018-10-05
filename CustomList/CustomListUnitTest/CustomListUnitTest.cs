@@ -55,6 +55,27 @@ namespace CustomListUnitTest
         }
 
         /////////////////////////////////////////////////////////////
+        /// <summary>
+        ///     [TestMethod]
+        public void Test_New_Capacity()
+        {
+            //Arrange
+            CList<int> customList = new CList<int>();
+            int value = 10;
+            int value1 = 20;
+            int Capaticy = 8;
+
+            //Act
+            customList.Add(value);
+            customList.Add(value1);
+            customList.Add(value);
+            customList.Add(value1);
+
+
+            //Assert
+            Assert.AreEqual(Capaticy, customList.Capacity);
+        }
+        /// </summary>
         [TestMethod]
         public void TestByIndexOF_list_Remove()
         {

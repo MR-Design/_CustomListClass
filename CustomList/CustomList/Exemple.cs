@@ -6,11 +6,12 @@ using System.Threading.Tasks;
 
 namespace CustomList
 {
-    class Program
+    class Exemple
     {
-        static void Main(string[] args)
+       public void ListsPractice()
         {
-            CList<int> Mlist = new <int> CList();
+
         }
+
     }
 }
