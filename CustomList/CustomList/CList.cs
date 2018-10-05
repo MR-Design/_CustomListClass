@@ -6,8 +6,9 @@ using System.Threading.Tasks;
 
 namespace CustomList
 {
-    public class CList <T>
+    public class CList <T> 
     {
+
         T[] Input;
         private int count;
         public int Capacity { get; set; }
@@ -17,7 +18,7 @@ namespace CustomList
             Capacity = 4;
             Input = new T[Capacity];
         }
-
+        
         public T this[int i]
         {
             get { return Input[i]; }
@@ -58,22 +59,12 @@ namespace CustomList
 
         public void Remove(T value)
         {
-            //if (count >= Capacity)
-            //{
-            //    T[] temp = new T[Capacity * 2];
-            //    for (int i = 0; i < count; i++)
-            //    {
-            //        temp[i] = Input[i];
-            //    }
-
-            //    temp[count] = value;
-            //    count--;
-            //    Input = temp;
-            //}
-
+           // if (value == Input)
+ 
                  Input[count] = value;
                  count--;
-          
+            
+
         }
 
 

@@ -8,26 +8,13 @@ namespace CustomListUnitTest
     [TestClass]
     public class CustomListUnitTest
     {
+
         [TestMethod]
-        public void TestMethod1()
+        public void AddValur_Return_CountIncreaseByOne()
         {
             //Arrange
             CList<int> customList = new CList<int>();
-            int value = 16;
-
-            //Act
-            customList.Add(value);
-
-            //Assert
-            Assert.AreEqual(value, customList[0]);
-        }
-
-        [TestMethod]
-        public void TestMethod2()
-        {
-            //Arrange
-            CList<int> customList = new CList<int>();
-            int value = 16;
+            int value = 10;
             int countValue = 1;
 
             //Act
@@ -38,11 +25,11 @@ namespace CustomListUnitTest
         }
 
         [TestMethod]
-        public void TestMethod3()
+        public void AddedValue_Returen_IndexValue()
         {
             //Arrange
             CList<int> customList = new CList<int>();
-            int value = 16;
+            int value = 10;
             int value1 = 20;
 
 
@@ -54,30 +41,53 @@ namespace CustomListUnitTest
             Assert.AreEqual(value, customList[0]);
         }
 
-        /////////////////////////////////////////////////////////////
-        /// <summary>
-        ///     [TestMethod]
-        public void Test_New_Capacity()
+        [TestMethod]
+
+        public void CheckCapacity4_AddValueNextIndex_Return_Zero()
+        {
+            //Arrange
+            CList<int> customList = new CList<int>();
+            int value1 = 10;
+            int value2 = 20;
+           
+            int ExpectedResult = 0;
+
+            //Act
+            customList.Add(value1);
+            customList.Add(value2);
+          
+
+            customList.Remove(value2);
+
+
+            //Assert
+            Assert.AreEqual(ExpectedResult, customList[3]);
+        }
+
+        [TestMethod]
+        public void Add_Over4Arrays_Return_Capacity_8()
         {
             //Arrange
             CList<int> customList = new CList<int>();
             int value = 10;
             int value1 = 20;
             int Capaticy = 8;
+            int ExpectedResult = Capaticy;
 
             //Act
             customList.Add(value);
             customList.Add(value1);
             customList.Add(value);
             customList.Add(value1);
+            customList.Add(value1);
 
 
             //Assert
-            Assert.AreEqual(Capaticy, customList.Capacity);
+            Assert.AreEqual(ExpectedResult, customList.Capacity);
         }
         /// </summary>
         [TestMethod]
-        public void TestByIndexOF_list_Remove()
+        public void TestByIndexOF_Add_Methode()
         {
             //Arrange
             CList<int> customList = new CList<int>();
@@ -93,8 +103,8 @@ namespace CustomListUnitTest
             //Assert
             Assert.AreEqual(value, customList[0]);
         }
-
-        public void TestByCount_list_Remove()
+        [TestMethod]
+        public void TestByCount_Add_Methode()
         {
             //Arrange
             CList<int> customList = new CList<int>();
@@ -112,8 +122,75 @@ namespace CustomListUnitTest
             Assert.AreEqual(CountValue, customList.Count);
         }
 
+        [TestMethod]
+        public void Remove_Value_Returen_CountDecreise()
+        {
+            //Arrange
+            CList<int> customList = new CList<int>();
+            int value = 10;
+            int value2 = 20;
+            int CountValue = 1;
+            int ExpectedResult = CountValue;
+            
+            //Act
+            customList.Add(value);
+            customList.Add(value2);
+            customList.Remove(value2);
+
+
+            //Assert
+            Assert.AreEqual(ExpectedResult, customList.Count);
+        }
+
+        [TestMethod]
+        //
+
+        public void RemoveValueIfArrayLenghtIs5_ReturenCapacityDicrease()
+        {
+            //Arrange
+            CList<int> customList = new CList<int>(); // Need Inumerable{ 10, 20, 30, 40 };
+            int value = 10;
+            int value2 = 20;
+            int Capacity = 4;
+            int ExpectedResult = Capacity;
+
+            //Act
+            customList.Add(value);
+            customList.Add(value2);
+            customList.Add(value);
+            customList.Add(value);
+            customList.Remove(value2);
+
+
+            //Assert
+            Assert.AreEqual(ExpectedResult, customList.Capacity);
+        }
+
+        [TestMethod]
+        //
+
+        public void RemoveValue_NextValue_GetNewIndex()
+        {
+            //Arrange
+            CList<int> customList = new CList<int>(); 
+            int value1 = 10;
+            int value2 = 20;
+            int value3 = 30;
+            int ExpectedResult = value3;
+
+            //Act
+            customList.Add(value1);
+            customList.Add(value2);
+            customList.Add(value3);
+           
+            customList.Remove(value2);
+
+
+            //Assert
+            Assert.AreEqual(ExpectedResult, customList[1]);       
+        }
+
     
-       
     }
 }
 
