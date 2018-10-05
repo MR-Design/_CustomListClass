@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+
 namespace CustomList
 {
     public class CList <T> 
@@ -57,14 +58,37 @@ namespace CustomList
 
 
 
+        //public int IndexOf(T value)
+        //{
+        //    int itemIndex = -1;
+        //    for (int i = 0; i < Count; i++)
+        //    {
+        //        if ( Input[i] == value)
+        //        {
+        //            itemIndex = i;
+        //            break;
+        //        }
+        //    }
+        //    return itemIndex;
+        //}
+
         public void Remove(T value)
         {
-           // if (value == Input)
- 
-                 Input[count] = value;
-                 count--;
-            
-
+            T[] temp = new T[Capacity];
+            for (int i = 0; i < count; i++)
+            {
+                if (Input[i].Equals(value))
+                {
+                    temp[i] = temp[i + 1];
+                    count--;
+                    return;
+                }
+                else
+                {
+                    Input = temp;
+                }
+             }
+            Input = temp;
         }
 
 
