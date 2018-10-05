@@ -10,7 +10,7 @@ namespace CustomListUnitTest
     {
 
         [TestMethod]
-        public void AddValur_Return_CountIncreaseByOne()
+        public void AddValue_Return_CountIncreaseByOne()
         {
             //Arrange
             CList<int> customList = new CList<int>();
@@ -188,6 +188,44 @@ namespace CustomListUnitTest
 
             //Assert
             Assert.AreEqual(ExpectedResult, customList[1]);       
+        }
+
+          [TestMethod]
+        //
+
+        public void RemoveValue_Return_NewCount()
+        {
+            int count = 8;
+            int ExpectedResult = count;
+            //Arrange
+            CList<int> customList = new CList<int>(); 
+            int value1 = 10;
+            int value2 = 20;
+            int value3 = 30;
+            int value4 = 40;
+            int value5 = 50;
+            int value6 = 60;
+            int value7 = 70;
+            int value8 = 80;
+            int value9 = 90;
+            
+
+            //Act
+            customList.Add(value1);
+            customList.Add(value2);
+            customList.Add(value3);
+            customList.Add(value4);
+            customList.Add(value5);
+            customList.Add(value6);
+            customList.Add(value7);
+            customList.Add(value8);
+            customList.Add(value9);
+
+            customList.Remove(value2);
+
+
+            //Assert
+            Assert.AreEqual(ExpectedResult, customList.Count);       
         }
 
     
