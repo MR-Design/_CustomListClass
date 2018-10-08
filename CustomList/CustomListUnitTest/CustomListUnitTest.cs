@@ -366,7 +366,7 @@ namespace CustomListUnitTest
             int expectedResult = 1;
 
             // act
-            actual = List1 * List2;
+         //   actual = List1 * List2;
 
             // assert
             Assert.AreEqual(expectedResult, actual[0]);
@@ -383,7 +383,7 @@ namespace CustomListUnitTest
             int expectedResult = 2;
 
             // act
-            actual = List1 * List2;
+          //  actual = List1 * List2;
 
             // assert
             Assert.AreEqual(expectedResult, actual[1]);
@@ -400,7 +400,7 @@ namespace CustomListUnitTest
             int expectedResult = 6;
 
             // act
-            actual = List1 * List2;
+           // actual = List1 * List2;
 
             // assert
             Assert.AreEqual(expectedResult, actual[6]);
@@ -418,7 +418,7 @@ namespace CustomListUnitTest
             int expectedResult = Count;
 
             // act
-            actual = List1 * List2;
+          //  actual = List1 * List2;
 
             // assert
             Assert.AreEqual(expectedResult, actual.Count);
@@ -436,7 +436,7 @@ namespace CustomListUnitTest
             int expectedResult = Capacity;
 
             // act
-            expected = List1 * List2;
+           // expected = List1 * List2;
 
             //somthing.zip(List1, List2)
 

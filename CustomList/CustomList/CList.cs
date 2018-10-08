@@ -67,7 +67,7 @@ namespace CustomList
 
             if (count >= Capacity)
             {
-                T[] temp = new T[Capacity * 2];
+                T[] temp = new T[Capacity *= 2];
                 for (int i = 0; i < count; i++)
                 {
                     temp[i] = Input[i];
@@ -109,11 +109,7 @@ namespace CustomList
                 {
                     temp[i] = temp[i + 1];
                     count--;
-                    return;
-                }
-                else
-                {
-                    Input = temp;
+                    
                 }
              }
             Input = temp;
@@ -135,8 +131,11 @@ namespace CustomList
         }
 
 
+        //The Aggregate function
+        //int modValue = ints.Aggregate(1, (x, y) => x * y);
+       
         // overload operator +
-      
+
         public static CList<T>  operator + (CList<T> x, CList<T> y)
         {
             CList<T> Fraction = new CList<T>();
@@ -162,67 +161,63 @@ namespace CustomList
             CList<T> Fraction = new CList<T>();
             for (int i = 0; i <= x.Count - 1; i++)
             {
-                for (int j = 0; i <= y.Count - 1; j++)
-                    if (i == j)
-                    {    Fraction.Remove(x[i]);
-                         return Fraction;
+                for (int j = 0; j <= y.Count - 1; j++)
+                    if (!x[i].Equals(y[j]))
+                    {
+                        Fraction.Add(x[i]);
                     }
+                //return Fraction;
+
             }
 
             return Fraction;
         }
 
-        public static CList<T> operator *(CList<T> x, CList<T> y)
+
+        public void Zip(T value)
         {
-            CList<T> Fraction = new CList<T>();
-
-
-            return Fraction;
         }
-            //  public void Zip(T value)
-            //  {              
-            //  }
 
 
 
-            //public void CustomList()
-            //{
-            //    Input = new T[Capacity];
-            //}
-            //public void Add_OLD(T value)
-            //{
-            //    //temp array
-            //    //loop
-            //    //count++
+        //public void CustomList()
+        //{
+        //    Input = new T[Capacity];
+        //}
+        //public void Add_OLD(T value)
+        //{
+        //    //temp array
+        //    //loop
+        //    //count++
 
-            //    //if space
+        //    //if space
 
 
-            //    //else 
-            //    //make space then add
-            //    T[] temp = new T[Input.Length + 1];
+        //    //else 
+        //    //make space then add
+        //    T[] temp = new T[Input.Length + 1];
 
-            //    for (int i = 0; i < count; i++)
-            //    {
-            //        temp[i] = Input[i];
-            //    }
+        //    for (int i = 0; i < count; i++)
+        //    {
+        //        temp[i] = Input[i];
+        //    }
 
-            //    temp[count] = value;
-            //    count++;
-            //    Input = temp;
-            //}
+        //    temp[count] = value;
+        //    count++;
+        //    Input = temp;
+        //}
 
-            // Must also implement IEnumerable.GetEnumerator, but implement as a private method.
-            // Must also implement IEnumerable.GetEnumerator, but implement as a private method.
-            //private IEnumerator GetEnumerator1()
-            //{
-            //    return this.GetEnumerator();
-            //}
-            //IEnumerator IEnumerable.GetEnumerator()
-            //{
-            //    return GetEnumerator1();
-            //}
+        // Must also implement IEnumerable.GetEnumerator, but implement as a private method.
+        // Must also implement IEnumerable.GetEnumerator, but implement as a private method.
+        //private IEnumerator GetEnumerator1()
+        //{
+        //    return this.GetEnumerator();
+        //}
+        //IEnumerator IEnumerable.GetEnumerator()
+        //{
+        //    return GetEnumerator1();
+        //}
 
-        }
+    }
 }
 
