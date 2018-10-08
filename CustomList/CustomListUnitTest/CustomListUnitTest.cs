@@ -280,6 +280,78 @@ namespace CustomListUnitTest
             // assert
             Assert.AreEqual(expectedResult, actual.Capacity);
         }
+
+
+        /////////////////[- Operator]///////////////////////////////////////
+        [TestMethod]
+        public void Subtract_Two_Lists_Returns_Expected_Index_0_Value_10()
+        {
+            // arrange
+            CList<int> List1 = new CList<int>() { 10, 20, 30 };
+            CList<int> List2 = new CList<int>() { 30, 20, 60 };
+            CList<int> expected = new CList<int>() { 10, 60 };
+            CList<int> actual = new CList<int>();
+            int expectedResult = 10;
+
+            // act
+            actual = List1 - List2;
+
+            // assert
+            Assert.AreEqual(expectedResult, actual[0]);
+        }
+
+        [TestMethod]
+        public void Subtract_Two_Lists_Returns_Expected_Index_1_Value_60()
+        {
+            // arrange
+            CList<int> List1 = new CList<int>() { 10, 20, 30 };
+            CList<int> List2 = new CList<int>() { 30, 20, 60 };
+            CList<int> expected = new CList<int>() { 10, 60 };
+            CList<int> actual = new CList<int>();
+            int expectedResult = 60;
+
+            // act
+            actual = List1 - List2;
+
+            // assert
+            Assert.AreEqual(expectedResult, actual[1]);
+        }
+
+        [TestMethod]
+        public void SubtractListsInstance_Returns_Expected_Count_2()
+        {
+            // arrange
+            CList<int> List1 = new CList<int>() { 10, 20, 30 };
+            CList<int> List2 = new CList<int>() { 30, 20, 60 };
+            CList<int> expected = new CList<int>() { 10, 60 };
+            CList<int> actual = new CList<int>();
+            int Count = 2;
+            int expectedResult = Count;
+
+            // act
+            actual = List1 - List2;
+
+            // assert
+            Assert.AreEqual(expectedResult, actual.Count);
+        }
+
+        [TestMethod]
+        public void SubtractTwoListsInstance_Returns_Expected_Capacity_5()
+        {
+            // arrange
+            CList<int> List1 = new CList<int>() { 10, 20, 30 };
+            CList<int> List2 = new CList<int>() { 30, 20, 60 };
+            CList<int> expected = new CList<int>() { 10, 60 };
+            CList<int> actual = new CList<int>();
+            int Capacity = 5;
+            int expectedResult = Capacity;
+
+            // act
+            actual = List1 + List2;
+
+            // assert
+            Assert.AreEqual(expectedResult, actual.Capacity);
+        }
     }
 }
 
