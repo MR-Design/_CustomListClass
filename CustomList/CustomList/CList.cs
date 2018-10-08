@@ -133,6 +133,26 @@ namespace CustomList
         }
 
 
+        // overload operator +
+      
+        public static CList<T>  operator + (CList<T> x, CList<T> y)
+        {
+            CList<T> Fraction = new CList<T>();
+            for (int i = 0; i <= x.Count-1; i++)
+            {
+                Fraction.Add(x[i]);
+           
+            }
+            for (int i = 0; i <= y.Count - 1; i++)
+            {
+                Fraction.Add(y[i]);
+               
+            }
+            return  Fraction;
+        }
+
+        // overload operator -
+
 
 
 
