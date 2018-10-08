@@ -153,7 +153,22 @@ namespace CustomList
 
         // overload operator -
 
+        // overload operator +
 
+        public static CList<T> operator -(CList<T> x, CList<T> y)
+        {
+            CList<T> Fraction = new CList<T>();
+            for (int i = 0; i <= x.Count - 1; i++)
+            {
+                for (int j = 0; i <= y.Count - 1; j++)
+                    if(i==j)
+                    Fraction.Remove(x[i]);
+                    Fraction.Remove(y[i]);
+
+            }
+           
+            return Fraction;
+        }
 
 
 
