@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -7,8 +8,33 @@ using System.Threading.Tasks;
 
 namespace CustomList
 {
-    public class CList <T> 
+    public class CList <T>: IEnumerable<T>//, IComparable<T>
     {
+        ////// NEED To Inderstand This !!!///////
+      //// https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/yield
+        //public int CompareTo(T other)
+        //{
+        //    throw new NotImplementedException();
+        //}
+        public IEnumerator GetEnumerator()
+        {
+            for (int i = 0; i < count; i++)
+            {
+                yield return this[i];
+            }
+        }
+
+        IEnumerator<T> IEnumerable<T>.GetEnumerator()
+        {
+            for (int i = 0; i < count; i++)
+            {
+                 yield return this[i];
+               // return (IEnumerator) GetEnumerator();
+                //Input[i] = [i];
+            }
+        }
+
+
 
         T[] Input;
         private int count;
@@ -92,6 +118,25 @@ namespace CustomList
         }
 
 
+        //I want to be able to override the ToString method that converts the contents of the custom list to a string.
+        public override String ToString()
+        {
+            String NewStrValue = String.Empty;
+            foreach (T Input in this)
+            {
+                if (String.IsNullOrEmpty(NewStrValue))
+                    NewStrValue += Input.ToString();
+                else
+                    NewStrValue += String.Format(", {0}", Input);
+            }
+            return NewStrValue;
+        }
+
+
+
+
+
+
 
 
         //public void CustomList()
@@ -119,6 +164,17 @@ namespace CustomList
         //    temp[count] = value;
         //    count++;
         //    Input = temp;
+        //}
+
+        // Must also implement IEnumerable.GetEnumerator, but implement as a private method.
+        // Must also implement IEnumerable.GetEnumerator, but implement as a private method.
+        //private IEnumerator GetEnumerator1()
+        //{
+        //    return this.GetEnumerator();
+        //}
+        //IEnumerator IEnumerable.GetEnumerator()
+        //{
+        //    return GetEnumerator1();
         //}
 
     }
