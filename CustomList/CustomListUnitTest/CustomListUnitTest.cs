@@ -347,10 +347,101 @@ namespace CustomListUnitTest
             int expectedResult = Capacity;
 
             // act
-            actual = List1 + List2;
+            actual = List1 - List2;
 
             // assert
             Assert.AreEqual(expectedResult, actual.Capacity);
+        }
+
+        //////, I want the ability to zip two custom list class instances together in the form of a zipper
+        ///
+        [TestMethod]
+        public void Zip_Two_Lists_Returns_Expected_Index_0_Value_1()
+        {
+            // arrange
+            CList<int> List1 = new CList<int>() { 1, 3, 5 };
+            CList<int> List2 = new CList<int>() { 2, 4, 6 };
+            CList<int> expected = new CList<int>() { 1, 2, 3, 4, 5, 6 };
+            CList<int> actual = new CList<int>();
+            int expectedResult = 1;
+
+            // act
+            actual = List1 * List2;
+
+            // assert
+            Assert.AreEqual(expectedResult, actual[0]);
+        }
+
+        [TestMethod]
+        public void Zip_Two_Lists_Returns_Expected_Index_1_Value_2()
+        {
+            // arrange
+            CList<int> List1 = new CList<int>() { 1, 3, 5 };
+            CList<int> List2 = new CList<int>() { 2, 4, 6 };
+            CList<int> expected = new CList<int>() { 1, 2, 3, 4, 5, 6 };
+            CList<int> actual = new CList<int>();
+            int expectedResult = 2;
+
+            // act
+            actual = List1 * List2;
+
+            // assert
+            Assert.AreEqual(expectedResult, actual[1]);
+        }
+
+        [TestMethod]
+        public void Zip_Two_Lists_Returns_Expected_Index_6_Value_6()
+        {
+            // arrange
+            CList<int> List1 = new CList<int>() { 1, 3, 5 };
+            CList<int> List2 = new CList<int>() { 2, 4, 6 };
+            CList<int> expected = new CList<int>() { 1, 2, 3, 4, 5, 6 };
+            CList<int> actual = new CList<int>();
+            int expectedResult = 6;
+
+            // act
+            actual = List1 * List2;
+
+            // assert
+            Assert.AreEqual(expectedResult, actual[6]);
+        }
+
+        [TestMethod]
+        public void ZipListsInstance_Returns_Expected_Count_2()
+        {
+            // arrange
+            CList<int> List1 = new CList<int>() { 1, 3, 5 };
+            CList<int> List2 = new CList<int>() { 2, 4, 6 };
+            CList<int> expected = new CList<int>() { 1, 2, 3, 4, 5, 6 };
+            CList<int> actual = new CList<int>();
+            int Count = 6;
+            int expectedResult = Count;
+
+            // act
+            actual = List1 * List2;
+
+            // assert
+            Assert.AreEqual(expectedResult, actual.Count);
+        }
+
+        [TestMethod]
+        public void ZipTwoListsInstance_Returns_Expected_Capacity_5()
+        {
+            // arrange
+            CList<int> List1 = new CList<int>() { 1, 3, 5 };
+            CList<int> List2 = new CList<int>() { 2, 4, 6 };
+            CList<int> expected = new CList<int>() { 1, 2, 3, 4, 5, 6 };
+            CList<int> actual = new CList<int>();
+            int Capacity = 8;
+            int expectedResult = Capacity;
+
+            // act
+            expected = List1 * List2;
+
+            //somthing.zip(List1, List2)
+
+            // assert
+             Assert.AreEqual(expectedResult, actual.Capacity);
         }
     }
 }
