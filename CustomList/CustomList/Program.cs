@@ -10,17 +10,17 @@ namespace CustomList
     {
         static void Main(string[] args)
         {
-            CList<int> customList = new CList<int>();
-            int value1 = 10;
-            int value2 = 20;
-            int value3 = 30;
+            CList<int> List1 = new CList<int>() { 10, 20, 30 };
+            CList<int> List2 = new CList<int>() { 30, 20, 60 };
+            CList<int> expected = new CList<int>() { 10 };
 
-            //Act
-            customList.Add(value1);
-            customList.Add(value2);
-            customList.Add(value3);
+            CList<int> actual;
 
-            customList.Remove(value2);
+            actual = List1 - List2;
+            int Count = 2;
+            int expectedResult = Count;
+
+            // act
         }
     }
 }

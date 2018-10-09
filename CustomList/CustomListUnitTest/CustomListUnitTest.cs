@@ -10,40 +10,40 @@ namespace CustomListUnitTest
     {
 
         [TestMethod]
-        public void AddValue_Return_CountIncreaseByOne()
+        public void AddValue_Return_expected_Count_1_()
         {
             //Arrange
             CList<int> customList = new CList<int>();
             int value = 10;
-            int countValue = 1;
-
+            int count = 1;
+            int ExpectedResult = count;
             //Act
-            customList.Add(value);
+             customList.Add(value);
 
             //Assert
-            Assert.AreEqual(customList.Count, countValue);
+            Assert.AreEqual(customList.Count, count);
         }
 
         [TestMethod]
-        public void AddedValue_Returen_IndexValue()
+        public void Add_to_List_Returen_Index_0_Expected_Value_10()
         {
             //Arrange
             CList<int> customList = new CList<int>();
             int value = 10;
             int value1 = 20;
-
+            int ExpectedResult = value;
 
             //Act
             customList.Add(value);
             customList.Add(value1);
 
             //Assert
-            Assert.AreEqual(value, customList[0]);
+            Assert.AreEqual(ExpectedResult, customList[0]);
         }
 
         [TestMethod]
 
-        public void CheckCapacity4_AddValueNextIndex_Return_Zero()
+        public void Capacity_Check_Add_to_List_then_Remove_Index_3_ExpectedReturn_0()
         {
             //Arrange
             CList<int> customList = new CList<int>();
@@ -55,8 +55,6 @@ namespace CustomListUnitTest
             //Act
             customList.Add(value1);
             customList.Add(value2);
-          
-
             customList.Remove(value2);
 
 
@@ -65,7 +63,7 @@ namespace CustomListUnitTest
         }
 
         [TestMethod]
-        public void Add_Over4Arrays_Return_Capacity_8()
+        public void Add_Over_4_Arrays_Return_Expected_Capacity_8()
         {
             //Arrange
             CList<int> customList = new CList<int>();
@@ -87,7 +85,7 @@ namespace CustomListUnitTest
         }
         /// </summary>
         [TestMethod]
-        public void TestByIndexOF_Add_Methode()
+        public void Remove_IndexOF_Add_Methode()
         {
             //Arrange
             CList<int> customList = new CList<int>();
@@ -104,7 +102,7 @@ namespace CustomListUnitTest
             Assert.AreEqual(value, customList[0]);
         }
         [TestMethod]
-        public void TestByCount_Add_Methode()
+        public void TestByCount_Add_Methode_Return_Expected_Count_1()
         {
             //Arrange
             CList<int> customList = new CList<int>();
@@ -123,14 +121,14 @@ namespace CustomListUnitTest
         }
 
         [TestMethod]
-        public void Remove_Value_Returen_CountDecreise()
+        public void Remove_Value_Returen_CountDecreise_ExpectedValue_1_()
         {
             //Arrange
             CList<int> customList = new CList<int>();
             int value = 10;
             int value2 = 20;
-            int CountValue = 1;
-            int ExpectedResult = CountValue;
+            int Count = 1;
+            int ExpectedResult = Count;
             
             //Act
             customList.Add(value);
@@ -145,7 +143,7 @@ namespace CustomListUnitTest
         [TestMethod]
         //
 
-        public void RemoveValueIfArrayLenghtIs5_ReturenCapacityDicrease()
+        public void RemoveValueIfArrayLenghtIs5_Returen_Expected_CapacityDicrease_Value_4()
         {
             //Arrange
             CList<int> customList = new CList<int>(); // Need Inumerable{ 10, 20, 30, 40 };
@@ -167,7 +165,7 @@ namespace CustomListUnitTest
         }
 
         [TestMethod]
-        //
+     
 
         public void RemoveValue_NextValue_expected_GetNewIndex_Value3()
         {

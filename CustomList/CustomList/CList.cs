@@ -110,11 +110,28 @@ namespace CustomList
                     temp[i] = temp[i + 1];
                     count--;
                     
+                    
                 }
              }
             Input = temp;
         }
 
+        // OR 
+        //public void Remove(T value)
+        //{
+        //    T[] temp = new T[Capacity];
+        //    for (int i = 0; i < count; i++)
+        //    {
+        //        if (!Input[i].Equals(value))
+        //        {
+        //            temp[i] = Input[i];
+
+        //            count--;
+
+        //        }
+        //    }
+        //    Input = temp;
+        //}
 
         //I want to be able to override the ToString method that converts the contents of the custom list to a string.
         public override String ToString()
@@ -159,6 +176,7 @@ namespace CustomList
         public static CList<T> operator -(CList<T> x, CList<T> y)
         {
             CList<T> Fraction = new CList<T>();
+
             for (int i = 0; i <= x.Count - 1; i++)
             {
                 for (int j = 0; j <= y.Count - 1; j++)
@@ -166,9 +184,10 @@ namespace CustomList
                     {
                         Fraction.Add(x[i]);
                     }
-                //return Fraction;
 
             }
+
+          
 
             return Fraction;
         }
