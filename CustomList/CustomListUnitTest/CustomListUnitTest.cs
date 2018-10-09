@@ -351,8 +351,6 @@ namespace CustomListUnitTest
             Assert.AreEqual(expectedResult, actual.Capacity);
         }
 
-        //////, I want the ability to zip two custom list class instances together in the form of a zipper
-        ///
         [TestMethod]
         public void Zip_Two_Lists_Returns_Expected_Index_0_Value_1()
         {
