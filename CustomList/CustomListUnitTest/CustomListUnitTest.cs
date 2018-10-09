@@ -364,8 +364,7 @@ namespace CustomListUnitTest
             int expectedResult = 1;
 
             // act
-         //   actual = List1 * List2;
-
+            // actual.zip(List1, List2)
             // assert
             Assert.AreEqual(expectedResult, actual[0]);
         }
@@ -381,31 +380,30 @@ namespace CustomListUnitTest
             int expectedResult = 2;
 
             // act
-          //  actual = List1 * List2;
-
+            // actual.zip(List1, List2)
             // assert
             Assert.AreEqual(expectedResult, actual[1]);
         }
 
         [TestMethod]
-        public void Zip_Two_Lists_Returns_Expected_Index_6_Value_6()
+        public void Zip_Two_Lists_Returns_Expected_Index_5_Value_6()
         {
             // arrange
             CList<int> List1 = new CList<int>() { 1, 3, 5 };
             CList<int> List2 = new CList<int>() { 2, 4, 6 };
             CList<int> expected = new CList<int>() { 1, 2, 3, 4, 5, 6 };
             CList<int> actual = new CList<int>();
-            int expectedResult = 6;
+            int expectedResult = 5;
 
             // act
-           // actual = List1 * List2;
+            // actual.zip(List1, List2)
 
             // assert
-            Assert.AreEqual(expectedResult, actual[6]);
+            Assert.AreEqual(expectedResult, actual[5]);
         }
 
         [TestMethod]
-        public void ZipListsInstance_Returns_Expected_Count_2()
+        public void ZipListsInstance_Returns_Expected_Count_6()
         {
             // arrange
             CList<int> List1 = new CList<int>() { 1, 3, 5 };
@@ -416,8 +414,7 @@ namespace CustomListUnitTest
             int expectedResult = Count;
 
             // act
-          //  actual = List1 * List2;
-
+            // actual.zip(List1, List2)
             // assert
             Assert.AreEqual(expectedResult, actual.Count);
         }
@@ -434,12 +431,10 @@ namespace CustomListUnitTest
             int expectedResult = Capacity;
 
             // act
-           // expected = List1 * List2;
-
-            //somthing.zip(List1, List2)
+           // actual.zip(List1, List2)
 
             // assert
-             Assert.AreEqual(expectedResult, actual.Capacity);
+           Assert.AreEqual(expectedResult, actual.Capacity);
         }
     }
 }

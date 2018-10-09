@@ -10,33 +10,24 @@ namespace CustomList
 {
     public class CList <T>: IEnumerable<T>//, IComparable<T>
     {
-        ////// NEED To Inderstand This !!!///////
       //// https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/yield
-        //public int CompareTo(T other)
-        //{
-        //    throw new NotImplementedException();
-        //}
+
         public IEnumerator GetEnumerator()
         {
             for (int i = 0; i < count; i++)
             {
                 yield return this[i];
                // yield return Input;
-
             }
         }
-
         IEnumerator<T> IEnumerable<T>.GetEnumerator()
         {
             for (int i = 0; i < count; i++)
             {
                  yield return this[i];
-               // return (IEnumerator) GetEnumerator();
                 //Input[i] = [i];
             }
         }
-
-
 
         T[] Input;
         private int count;
@@ -58,13 +49,10 @@ namespace CustomList
             get
             {
                 return count;
-            }
-            
+            }           
         }
-
         public void Add(T value)
         {
-
             if (count >= Capacity)
             {
                 T[] temp = new T[Capacity *= 2];
@@ -84,22 +72,6 @@ namespace CustomList
             }
         }
 
-
-
-        //public int IndexOf(T value)
-        //{
-        //    int itemIndex = -1;
-        //    for (int i = 0; i < Count; i++)
-        //    {
-        //        if ( Input[i] == value)
-        //        {
-        //            itemIndex = i;
-        //            break;
-        //        }
-        //    }
-        //    return itemIndex;
-        //}
-
         public void Remove(T value)
         {
             T[] temp = new T[Capacity];
@@ -108,9 +80,7 @@ namespace CustomList
                 if (Input[i].Equals(value))
                 {
                     temp[i] = temp[i + 1];
-                    count--;
-                    
-                    
+                    count--;                                      
                 }
              }
             Input = temp;
@@ -145,14 +115,7 @@ namespace CustomList
                     NewStrValue += String.Format(", {0}", Input);
             }
             return NewStrValue;
-        }
-
-
-        //The Aggregate function
-        //int modValue = ints.Aggregate(1, (x, y) => x * y);
-       
-        // overload operator +
-
+        }   
         public static CList<T>  operator + (CList<T> x, CList<T> y)
         {
             CList<T> Fraction = new CList<T>();
@@ -169,10 +132,6 @@ namespace CustomList
             return  Fraction;
         }
 
-        // overload operator -
-
-        
-
         public static CList<T> operator -(CList<T> x, CList<T> y)
         {
             CList<T> Fraction = new CList<T>();
@@ -184,59 +143,12 @@ namespace CustomList
                     {
                         Fraction.Add(x[i]);
                     }
-
-            }
-
-          
-
+            }        
             return Fraction;
         }
-
-
         public void Zip(T value)
         {
-        }
-
-
-
-        //public void CustomList()
-        //{
-        //    Input = new T[Capacity];
-        //}
-        //public void Add_OLD(T value)
-        //{
-        //    //temp array
-        //    //loop
-        //    //count++
-
-        //    //if space
-
-
-        //    //else 
-        //    //make space then add
-        //    T[] temp = new T[Input.Length + 1];
-
-        //    for (int i = 0; i < count; i++)
-        //    {
-        //        temp[i] = Input[i];
-        //    }
-
-        //    temp[count] = value;
-        //    count++;
-        //    Input = temp;
-        //}
-
-        // Must also implement IEnumerable.GetEnumerator, but implement as a private method.
-        // Must also implement IEnumerable.GetEnumerator, but implement as a private method.
-        //private IEnumerator GetEnumerator1()
-        //{
-        //    return this.GetEnumerator();
-        //}
-        //IEnumerator IEnumerable.GetEnumerator()
-        //{
-        //    return GetEnumerator1();
-        //}
-
+        }       
     }
 }
 
